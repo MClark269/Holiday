@@ -1,0 +1,40 @@
+<!-- index.html
+	Matthew Clark
+	03/30/2021
+	
+	Days until Christmas-->
+	
+<!DOCTYPE html>
+<html>
+	<head>
+		<link rel="stylesheet" href="site.css">
+	</head>
+	
+	<body>
+		<!-- Displays days until Christmas from javascript calculation -->
+		<img src="Christmas_lights.jpeg" alt="string of christmas lights">
+		<h1 id="demo"></h1>
+		<h2> Days until Christmas 2021</h2>
+		<img src="Christmas_lights.jpeg" alt="string of christmas lights">
+	</body>
+	
+	<script>
+		// Holiday
+		var holidayDate = new Date("Dec 24,2021 23:59:59");
+		var holidayMSec = holidayDate.getTime();
+
+		// Today's date
+		var todayMSec = Date.now();
+
+		// Difference in time between holiday and today
+		var diffMSec = holidayMSec - todayMSec;
+
+		// Convert from msec to days (msec->sec)(sec->min)(min->hr)(hr->day)
+		var diffDays = diffMSec * (1/1000) * (1/60) * (1/60) * (1/24);
+
+		// Return whole # of days till holiday, no negative after holiday
+		diffDays = Math.max(0,Math.floor(diffDays)+1);
+	
+		document.getElementById("demo").innerHTML = diffDays;
+	</script>	
+</html>
